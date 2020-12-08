@@ -21,7 +21,7 @@ function preload(){
 }
 
 function setup() {
-  createCanvas(800,400);
+  createCanvas(windowWidth,windowHeight);
   
   backgr=createSprite(0,0,800,400);
   backgr.addImage(backImage);
@@ -72,7 +72,7 @@ function draw() {
         default: break;
     }
   
-    if(keyDown("space") ) {
+    if( (touches.length>0 ||keyDown("space") ) && player.y >= height-120) {
       player.velocityY = -12;
     }
     player.velocityY = player.velocityY + 0.8;
@@ -91,7 +91,7 @@ function draw() {
   stroke("white");
   textSize(20);
   fill("white");
-  text("Score: "+ score, 500,50);
+  text("Score: "+ score, 450,50);
 }
 
 function spawnFood() {
